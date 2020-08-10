@@ -59,6 +59,7 @@ def decodeString(result,_id=None):
       #print(row)
       #print(json2obj(row))  #convert to string, then convert to object python
       result2.append(json.loads(row))
+
     return result2
 
 def find_restaurants(mongo, _id=None):
