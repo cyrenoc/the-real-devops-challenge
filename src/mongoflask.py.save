@@ -1,0 +1,50 @@
+from datetime import date, datetime
+import json  #get list on object json
+import ast   #to solve single quote and final comma issues
+
+from collections import namedtuple
+
+import isodate as iso
+from bson import ObjectId
+from flask.json import JSONEncoder
+from werkzeug.routing import BaseConverter
+
+
+class MongoJSONEncoder(JSONEncoder):
+    def default(self, o):
+        if isinstance(o, (datetime, date)):
+            return iso.datetime_isoformat(o)
+        if isinstance(o, ObjectId):
+            return str(o)
+        else:
+            return super().default(o)
+
+
+class ObjectIdConverter(BaseConverter):
+    def to_python(self, value):
+        return ObjectId(value)
+
+    def to_url(self, value):
+        return str(value)
+def _json_object_hook(d): return namedtuple('X', d.keys())(*d.values())
+def json2obj(data): return json.loads(data, object_hook=_json_object_hook)
+
+def find_restaurants(mongo, _id=None):
+    query = {}
+    jsonObject={}
+    result={};
+    if _id:
+          print ("prinsazo: "+(_id))
+          query["_id"] = ObjectId(_id)
+          #for key in query:
+          #   print (key, ":", query[key]) 
+    result=list(mongo.db.restaurant.find(query))
+    for key in result:
+       key2=(str(key))
+       print(key2)
+       #key2= key2.replace("\'", "\"") # change ' for "
+       #key2=(str(key2))
+       #print(json2obj(str(key2)))  #convert to string, then convert to object python 
+    
+    return result
+    #return (list(mongo.db.restaurant.find(query)))
