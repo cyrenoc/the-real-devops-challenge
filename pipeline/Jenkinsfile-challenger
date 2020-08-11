@@ -18,9 +18,11 @@ pipeline {
                      //sh "virtualenv -p python .venv"	   
                      //sh "source .venv/bin/activate"
                      sh "pip install -r requirements.txt"
+                     sh "export MONGO_URI=mongodb://appAdmin:secret@127.0.0.1:27017/myNewDatabase"
+                     sh python app.py
                     }
 		}
-		stage('Test') {
+        stage('Test') {
             steps {
 		      //sh './jenkins/test/test.sh mvn test' 
                    sh "echo hola test"
