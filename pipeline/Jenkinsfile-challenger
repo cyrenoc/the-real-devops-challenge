@@ -18,9 +18,10 @@ pipeline {
                      //sh "virtualenv -p python .venv"	   
                      //sh "source .venv/bin/activate"
                      sh "pip install -r requirements.txt"
-                     sh "export MONGO_URI=mongodb://appAdmin:secret@127.0.0.1:27017/myNewDatabase"
-                     sh "echo $MONGO_URI" 
-                     sh "python app.py"
+                     //sh "export MONGO_URI=mongodb://appAdmin:secret@127.0.0.1:27017/myNewDatabase"
+                     //sh "python app.py"
+                     sh "/home/ubuntu/jenkins/the-real-devops-challenge/./start.sh"
+                       
                     }
 		}
         stage('Test') {
