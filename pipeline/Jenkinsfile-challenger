@@ -20,7 +20,6 @@ pipeline {
                      sh "pip install -r requirements.txt"
                      //sh "export MONGO_URI=mongodb://appAdmin:secret@127.0.0.1:27017/myNewDatabase"
                      //sh "python app.py"
-                     sh "./start.sh &"
                        
                     }
 		}
@@ -36,6 +35,8 @@ pipeline {
             steps {
        		   //sh './jenkins/deploy/deploy.sh'
                    sh "echo hola deploy"
+                   sh "./start.sh &"
+   
             }
          }
     }
