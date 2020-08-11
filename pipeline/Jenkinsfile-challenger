@@ -10,7 +10,8 @@ pipeline {
 
         stage('Build') {
             steps {
-		    sh "echo hola build"	   
+		    sh "echo hola build"
+                    sh "virtualenv -p python3 .venv"	   
 		    }
 		}
 		stage('Test') {
