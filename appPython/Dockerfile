@@ -21,8 +21,8 @@ RUN apt install -y docker-ce
 RUN apt-get install -y inetutils-ping
 
 RUN apt-get install -y git
-RUN cd /var
-RUN git clone https://github.com/cyrenoc/the-real-devops-challenge.git
+RUN cd /var/opt && git clone https://github.com/cyrenoc/the-real-devops-challenge.git
+RUN apt-get install -y python
 
 #RUN mongoimport --uri "mongodb://appAdmin:secret@localhost:27017/myNewDatabase"   -c restaurant --file  /tmp/restaurant.json
 
