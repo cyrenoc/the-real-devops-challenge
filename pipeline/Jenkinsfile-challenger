@@ -12,9 +12,9 @@ pipeline {
             steps {
 		     sh "echo hola build"
                      sh "pip install tox"
-                     //sh "sudo apt-get install -y python-virtualenv virtualenv"
-                     sh "python3 -m pip3 install --upgrade pip"
-                     sh "pip3 install virtualenv"
+                     sh "sudo apt-get install  python-virtualenv virtualenv"
+                     //sh "python3 -m pip3 install --upgrade pip"
+                     //sh "pip3 install virtualenv"
                      sh "virtualenv -p python3 .venv"	   
                      sh "source .venv/bin/activate"
                      sh "pip install -r requirements.txt"
