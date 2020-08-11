@@ -13,15 +13,12 @@ pipeline {
 		     sh "echo hola build"
                      sh "pip install tox"
                      sh "/usr/bin/python -m pip install --upgrade pip"
-                     //sh "sudo apt-get install -y1  python-virtualenv virtualenv"
-                     //sh "pip install virtualenv"
-                     //sh "virtualenv -p python .venv"	   
-                     //sh "source .venv/bin/activate"
                      sh "pip install -r requirements.txt"
                      //sh "export MONGO_URI=mongodb://appAdmin:secret@127.0.0.1:27017/myNewDatabase"
                      //sh "python app.py"
-                     sh "sudo apt-get install -y mongodb"
+                     //sh "sudo apt-get install -y mongodb"
                      sh "./insertUser.sh"         
+
                     }
 		}
         stage('Test') {
