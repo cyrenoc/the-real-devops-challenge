@@ -23,7 +23,7 @@ pipeline {
                       sh "docker stop docker-app && docker rm docker-app"
                       sh "docker run -d --network jenkins_net -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -p 8085:8085 \
                           --name docker-app  -i docker-app"
-                      sh "docker exec -t docker-app python3 /var/opt/the-real-devops-challenge/app.py"
+                      sh "docker exec -t docker-app python /var/opt/the-real-devops-challenge/app.py"
                     }
 		}
         stage('Test') {
