@@ -14,9 +14,8 @@ pipeline {
                      sh "pip install tox"
                      sh "/usr/bin/python -m pip install --upgrade pip"
                      //sh "sudo apt-get install -y1  python-virtualenv virtualenv"
-                     //sh "python3 -m pip3 install --upgrade pip"
                      sh "pip install virtualenv"
-                     sh "virtualenv -p python3 .venv"	   
+                     sh "virtualenv -p python .venv"	   
                      sh "source .venv/bin/activate"
                      sh "pip install -r requirements.txt"
                     }
