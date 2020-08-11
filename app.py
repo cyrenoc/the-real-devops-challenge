@@ -26,4 +26,4 @@ def restaurant(id):
     return jsonify(restaurants)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=False, port=8085)
+    app.run(host="http://jenkinsgui.checamed.network", debug=True, port=8085)
