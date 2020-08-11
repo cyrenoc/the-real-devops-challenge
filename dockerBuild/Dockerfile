@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM mongo
 
 USER root
 
@@ -15,7 +15,7 @@ RUN apt install -y docker-ce
 #RUN usermod -aG docker 
 
 #RUN su - ${USER}
-RUN  apt-get install -y mongodb
+#RUN  apt-get install -y mongodb
 RUN  apt-get install -y wget
 RUN wget -P  /tmp/  https://raw.githubusercontent.com/cyrenoc/the-real-devops-challenge/master/data/restaurant.json 
 RUN apt-get install -y inetutils-ping
