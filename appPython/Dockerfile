@@ -22,7 +22,7 @@ RUN apt-get install -y inetutils-ping
 
 RUN apt-get install -y git
 RUN cd /var/opt && git clone https://github.com/cyrenoc/the-real-devops-challenge.git
-RUN apt-get install -y python
+RUN apt-get install -y python3.4
 
 #RUN mongoimport --uri "mongodb://appAdmin:secret@localhost:27017/myNewDatabase"   -c restaurant --file  /tmp/restaurant.json
 
