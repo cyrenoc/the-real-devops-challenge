@@ -8,6 +8,6 @@ RUN apt-get update && \
 
 RUN  apt-get install -y mongodb
 
-RUN mongoimport --uri "mongodb://appAdmin:secret@127.0.0.1:27017/myNewDatabase"   -c restaurants --file  /home/ubuntu/jenkins/the-real-devops-challenge/data/restaurant.json
+RUN mongoimport --uri "mongodb://appAdmin:secret@127.0.0.1:27017/myNewDatabase"   -c restaurants --file  /var/jenkins_home/workspace/the-real-devops-challenge/data/restaurant.json
 
 
