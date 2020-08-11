@@ -1,0 +1,31 @@
+pipeline {
+
+    agent any
+
+    environment {
+	PASS = credentials('registry-pass')
+    }
+
+    stages {
+
+        stage('Build') {
+            steps {
+		    sh "echo hola build"	   
+		    }
+		}
+		stage('Test') {
+            steps {
+		      //sh './jenkins/test/test.sh mvn test' 
+                   sh "echo hola test"
+                  }
+		}
+		
+        stage('Deploy') {
+            steps {
+       		   //sh './jenkins/deploy/deploy.sh'
+                   sh "echo hola deploy"
+            }
+         }
+    }
+}
+
