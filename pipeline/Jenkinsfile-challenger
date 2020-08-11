@@ -19,7 +19,7 @@ pipeline {
             steps {
 		      //sh './jenkins/test/test.sh mvn test' 
                    sh "echo hola test"
-                   sh "docker run -it -v $(pwd):/tmp/app -w /tmp/app --rm painless/tox /bin/bash tox"
+                   sh "docker run -it -v pipeline/app/:/tmp/app -w /tmp/app --rm painless/tox /bin/bash tox"
                   }
 		}
 		
