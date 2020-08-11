@@ -29,7 +29,7 @@ RUN apt-get install -y  python3-setuptools
 #RUN easy_install pip3
 #RUN source .venv/bin/activate
 RUN apt install -y python3-pip
-CMD pip3 install -r /var/opt/the-real-devops-challenge/requirements.txt
+#CMD pip3 install -r /var/opt/the-real-devops-challenge/requirements.txt
 #CMD source .venv/bin/activate
 #RUN mongoimport --uri "mongodb://appAdmin:secret@localhost:27017/myNewDatabase"   -c restaurant --file  /tmp/restaurant.json
 
