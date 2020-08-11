@@ -12,6 +12,7 @@ RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubunt
 RUN apt update 
 RUN apt-cache policy docker-ce 
 RUN apt install -y docker-ce
+RUN export MONGO_URI=mongodb://appAdmin:secret@docker-build:27017/myNewDatabase
 #RUN usermod -aG docker 
 
 #RUN su - ${USER}

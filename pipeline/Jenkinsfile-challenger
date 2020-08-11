@@ -25,7 +25,7 @@ pipeline {
                           --name docker-app  -i docker-app"
                       
                       //sh "source .venv/bin/activate && pip install -r requirements.txt"
-                      sh "docker exec -t docker-app python /var/opt/the-real-devops-challenge/app.py"
+                      sh "docker exec -t docker-app python3 /var/opt/the-real-devops-challenge/app.py"
                       
                         
 		  }
