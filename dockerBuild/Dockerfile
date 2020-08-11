@@ -7,7 +7,7 @@ RUN apt-get update && \
 
 
 RUN  apt-get install -y mongodb
-RUN  ls
+RUN  apt-get install -y wget
 #COPY /var/jenkins_home/workspace/the-real-devops-challenge/data/restaurant.json /tmp/restaurant.json 
 #RUN /var/jenkins_home/workspace/the-real-devops-challenge/data/restaurant.json
 RUN cd /tmp/ 
