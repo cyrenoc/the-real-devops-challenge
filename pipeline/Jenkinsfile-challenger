@@ -2,7 +2,7 @@ pipeline {
 
     agent {
       any {
-       image 'ubuntu'
+       image 'mongo'
        args '-p 8085:8085 -u root'
       }
    }
