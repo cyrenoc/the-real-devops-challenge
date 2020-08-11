@@ -26,7 +26,7 @@ RUN apt-get install -y python3.4
 RUN apt-get install -y virtualenv
 
 RUN apt-get install python3-setuptools
-RUN easy_install3 pip
+RUN easy_install pip3
 #RUN source .venv/bin/activate
 RUN pip3 install -r requirements.txt
 
