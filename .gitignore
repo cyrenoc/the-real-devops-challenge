@@ -175,4 +175,6 @@ pip-selfcheck.json
 .history
 
 db_data
+
+mongo/data/db
 # End of https://www.gitignore.io/api/code,venv,linux,python,virtualenv,visualstudiocode
