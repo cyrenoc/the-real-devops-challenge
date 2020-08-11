@@ -25,8 +25,10 @@ RUN cd /var/opt && git clone https://github.com/cyrenoc/the-real-devops-challeng
 RUN apt-get install -y python3.4
 RUN apt-get install -y virtualenv
 
+RUN apt-get install python3-setuptools
+RUN easy_install3 pip
 #RUN source .venv/bin/activate
-#RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 #RUN mongoimport --uri "mongodb://appAdmin:secret@localhost:27017/myNewDatabase"   -c restaurant --file  /tmp/restaurant.json
 
