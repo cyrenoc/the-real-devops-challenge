@@ -1,11 +1,8 @@
 pipeline {
 
     agent {
-      any {
-       image 'mongo'
-       args '-p 8085:8085 -u root'
-      }
-   }
+      any   
+    }
 
     environment {
 	PASS = credentials('registry-pass')
@@ -15,13 +12,13 @@ pipeline {
 
         stage('Build') {
             steps {
-		     sh "echo hola build"
-                     sh "pip install tox"
-                     sh "/usr/bin/python -m pip install --upgrade pip"
-                     sh "pip install -r requirements.txt"
-                     sh "whoami"
-                     sh "./insertUser.sh"         
-
+		     //sh "echo hola build"
+                     //sh "pip install tox"
+                     //sh "/usr/bin/python -m pip install --upgrade pip"
+                     //sh "pip install -r requirements.txt"
+                     //sh "whoami"
+                     // sh "./insertUser.sh"         
+                      sh "docker run -f /home/ubuntu/jenkins/the-real-devops-challenge/dockerBuild/  -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -p 8085:8085 --name docker-in-jenkins-build "
 
                     }
 		}
