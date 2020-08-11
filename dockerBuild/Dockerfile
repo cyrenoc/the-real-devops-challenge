@@ -8,8 +8,10 @@ RUN apt-get update && \
 
 RUN  apt-get install -y mongodb
 RUN  ls
-COPY /var/jenkins_home/workspace/the-real-devops-challenge/data/restaurant.json /tmp/restaurant.json 
+#COPY /var/jenkins_home/workspace/the-real-devops-challenge/data/restaurant.json /tmp/restaurant.json 
 #RUN /var/jenkins_home/workspace/the-real-devops-challenge/data/restaurant.json
+RUN cd /tmp/ 
+RUN wget https://github.com/cyrenoc/the-real-devops-challenge/tree/master/data/restaurant.json
 RUN mongoimport --uri "mongodb://appAdmin:secret@127.0.0.1:27017/myNewDatabase"   -c restaurants --file  /tmp/restaurant.json
 
 
