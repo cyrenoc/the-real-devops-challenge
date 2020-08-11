@@ -18,6 +18,8 @@ RUN apt install -y docker-ce
 RUN  apt-get install -y mongodb
 RUN  apt-get install -y wget
 RUN wget -P  /tmp/  https://raw.githubusercontent.com/cyrenoc/the-real-devops-challenge/master/data/restaurant.json 
+RUN apt-get install -y inetutils-ping
+
 #RUN mongoimport --uri "mongodb://appAdmin:secret@localhost:27017/myNewDatabase"   -c restaurant --file  /tmp/restaurant.json
 
 
