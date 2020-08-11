@@ -25,7 +25,6 @@ pipeline {
                       sh "docker run -d -e MONGO_URI=mongodb://appAdmin:secret@docker-build:27017/myNewDatabase  --network jenkins_net -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -p 8085:8085 \
                           --name docker-app  -i docker-app"
                       //sh "source .venv/bin/activate && pip install -r requirements.txt"
-                      sh "docker exec -t docker-app  python3 /var/opt/the-real-devops-challenge/app.py"
                       
                         
 		  }
@@ -41,9 +40,10 @@ pipeline {
         stage('Deploy') {
             steps {
        		   //sh './jenkins/deploy/deploy.sh'
-                   sh "echo hola deploy"
-                   sh "./start.sh &"
-   
+                   sh "echo  deploy App"
+                   // sh "./start.sh &"
+                   sh "docker exec -t -d docker-app  python3 /var/opt/the-real-devops-challenge/app.py"
+
             }
          }
     }
