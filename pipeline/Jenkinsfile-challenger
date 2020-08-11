@@ -19,7 +19,7 @@ pipeline {
                      //sh "whoami"
                      // sh "./insertUser.sh"
 		      sh 'docker build -t "docker-in-jenkins-build:last"  /var/jenkins_home/workspace/the-real-devops-challenge/dockerBuild'
-                      sh "docker run -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -p 8085:8085 -i docker-in-jenkins-build "
+                      sh "docker run -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -p 8085:8085 -i 'docker-in-jenkins-build:last' "
                       sh "docker exec -t docker-in-jenkins-build  mongoimport --uri 'mongodb://appAdmin:secret@localhost:27017/myNewDatabase'   -c restaurant --file  /tmp/restaurant.json"
                     }
 		}
