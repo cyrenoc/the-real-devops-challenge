@@ -12,9 +12,9 @@ RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubunt
 RUN apt update 
 RUN apt-cache policy docker-ce 
 RUN apt install -y docker-ce
-RUN usermod -aG docker ${USER}
+#RUN usermod -aG docker 
 
-RUN su - ${USER}
+#RUN su - ${USER}
 RUN  apt-get install -y mongodb
 RUN  apt-get install -y wget
 RUN wget -P  /tmp/  https://raw.githubusercontent.com/cyrenoc/the-real-devops-challenge/master/data/restaurant.json 
