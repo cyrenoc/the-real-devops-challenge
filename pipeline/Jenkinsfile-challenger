@@ -15,8 +15,9 @@ pipeline {
                       sh 'echo prepare DB'
 		      sh 'docker build -t "docker-in-jenkins-build:latest"  /var/jenkins_home/workspace/the-real-devops-challenge/dockerBuild'
                       sh "docker stop docker-build && docker rm docker-build"
-                      sh "docker run -d --network jenkins_net -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -p 8088:8088 -p 27017:27017  \
-                          --name docker-build  -i docker-in-jenkins-build:latest"
+                      sh "docker run -d --network jenkins_net -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker \ 
+                          -v /home/ubuntu/jenkins/the-real-devops-challenge/mongo/data/db/:/data/db/                                          \    
+                          -p 8088:8088 -p 27017:27017 --name docker-build  -i docker-in-jenkins-build:latest"
                       sh "docker exec -t docker-build  mongoimport --uri 'mongodb://appAdmin:secret@docker-build:27017/myNewDatabase'   -c restaurant --file  /tmp/restaurant.json"
                       sh 'echo prepare appPython'
                       sh 'docker build -t "docker-app:latest"  /var/jenkins_home/workspace/the-real-devops-challenge/appPython'
