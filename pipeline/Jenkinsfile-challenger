@@ -20,7 +20,7 @@ pipeline {
                      sh "pip install -r requirements.txt"
                      //sh "export MONGO_URI=mongodb://appAdmin:secret@127.0.0.1:27017/myNewDatabase"
                      //sh "python app.py"
-                     sh "sudo apt install -y mongodb"
+                     sh "sudo apt-get install -y mongodb"
                      sh "./insertUser.sh"         
                     }
 		}
