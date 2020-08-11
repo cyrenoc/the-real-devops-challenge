@@ -10,9 +10,10 @@ pipeline {
 
         stage('Build') {
             steps {
-		    sh "echo hola build"
-                    //sh "virtualenv -p python3 .venv"	   
-		    sh "pip install tox"
+		     sh "echo hola build"
+                     sh "pip install tox"
+
+                     sh "virtualenv -p python3 .venv"	   
                     }
 		}
 		stage('Test') {
