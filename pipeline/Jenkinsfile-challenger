@@ -18,7 +18,7 @@ pipeline {
                      //sh "pip install -r requirements.txt"
                      //sh "whoami"
                      // sh "./insertUser.sh"
-                      sh "docker build -f /home/ubuntu/jenkins/the-real-devops-challenge/dockerBuild/"        
+		      sh 'docker build -t "docker-in-jenkins-build:last"  /home/ubuntu/jenkins/the-real-devops-challenge/dockerBuild'
                       sh "docker run -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -p 8085:8085 --name docker-in-jenkins-build "
 
                     }
