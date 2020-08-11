@@ -3,7 +3,7 @@ pipeline {
     agent {
       any {
        image 'ubuntu'
-       args '-p 8085:8085 -u 0'
+       args '-p 8085:8085 -u root'
       }
    }
 
