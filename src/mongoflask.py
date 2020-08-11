@@ -80,5 +80,5 @@ def find_restaurants(mongo, _id=None):
     else:
         result=list(mongo.db.restaurant.find(query))
         result2=decodeString(result)
-                        
+                         
     return result2
