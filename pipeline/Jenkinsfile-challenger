@@ -14,6 +14,8 @@ pipeline {
                      sh "pip install tox"
 
                      sh "virtualenv -p python3 .venv"	   
+                     sh "source .venv/bin/activate"
+                     sh "pip install -r requirements.txt"
                     }
 		}
 		stage('Test') {
