@@ -25,7 +25,7 @@ pipeline {
                       sh "docker stop docker-app && docker rm docker-app"
                       sh "docker run -d -e MONGO_URI=mongodb://appAdmin:secret@docker-build:27017/myNewDatabase  --network jenkins_net -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -p 8085:8085 \
                           --name docker-app  -i docker-app"
-                      sh "docker exec -t -d docker-app  -w /var/opt && git clone https://github.com/cyrenoc/the-real-devops-challenge.git"
+                      sh "docker exec -t -d -w /var/opt  docker-app  git clone https://github.com/cyrenoc/the-real-devops-challenge.git"
                         
 		  }
 		}
