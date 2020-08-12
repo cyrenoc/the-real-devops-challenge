@@ -19,13 +19,13 @@ pipeline {
                           -v /home/ubuntu/jenkins/the-real-devops-challenge/mongo/data/db/:/data/db/ \
                           -p 8088:8088 -p 27017:27017 --name docker-build  -i docker-in-jenkins-build:latest"
                       sh "docker exec -t docker-build  mongoimport --uri 'mongodb://appAdmin:secret@docker-build:27017/myNewDatabase'   -c restaurant --file  /tmp/restaurant.json"
+                      
                       sh 'echo prepare appPython'
                       sh 'docker build -t "docker-app:latest"  /var/jenkins_home/workspace/the-real-devops-challenge/appPython'
                       sh "docker stop docker-app && docker rm docker-app"
                       sh "docker run -d -e MONGO_URI=mongodb://appAdmin:secret@docker-build:27017/myNewDatabase  --network jenkins_net -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -p 8085:8085 \
                           --name docker-app  -i docker-app"
-                      //sh "source .venv/bin/activate && pip install -r requirements.txt"
-                      
+                      sh "docker exec -t -d docker-app  cd /var/opt && git clone https://github.com/cyrenoc/the-real-devops-challenge.git"
                         
 		  }
 		}
