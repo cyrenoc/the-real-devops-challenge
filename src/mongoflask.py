@@ -68,12 +68,13 @@ def find_restaurants(mongo, _id=None):
     result2=[]
 
     if _id:
-       print ("prinsazo: "+(_id))
+       #print ("prinsazo: "+(_id))
        query["_id"] = ObjectId(_id)
        result=list(mongo.db.restaurant.find(query))
        result2=decodeString(result,_id)
        if not result2:
-          result2="ERROR 204 - no match found."
+          #result2="ERROR 204 - no match found."
+          result2="<p style='color:#FF0000';>ERROR 204</p> -no match found."
        #print("calc: "+str(result))
           #for key in query:
           #   print (key, ":", query[key]) 
