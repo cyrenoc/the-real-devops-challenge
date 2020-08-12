@@ -21,7 +21,7 @@ pipeline {
                       sh "docker exec -t docker-build  mongoimport --uri 'mongodb://appAdmin:secret@docker-build:27017/myNewDatabase'   -c restaurant --file  /tmp/restaurant.json"
                       
                       sh 'echo prepare appPython'
-                      sh 'docker build -t "docker-app:latest"  /var/jenkins_home/workspace/the-real-devops-challenge/appPython'
+                      sh 'docker build --no-cache -t "docker-app:latest"  /var/jenkins_home/workspace/the-real-devops-challenge/appPython'
                       sh "docker stop docker-app && docker rm docker-app"
                       sh "docker run -d -e MONGO_URI=mongodb://appAdmin:secret@docker-build:27017/myNewDatabase  --network jenkins_net -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -p 8085:8085 \
                           --name docker-app  -i docker-app"
